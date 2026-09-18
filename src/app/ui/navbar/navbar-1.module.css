@@ -1,0 +1,60 @@
+.container {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  position: sticky;
+  z-index: 900;
+  background-color: #ffffff;
+}
+
+.logo {
+  height: 52;
+  width: 140;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1450px;
+  margin: auto;
+  flex-wrap: nowrap;
+}
+
+.icon {
+  min-height: 52px;
+  min-width: 64px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.signInButton {
+     padding: 1rem 1rem;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border : 2px solid black;
+    border-radius: 50px;
+    max-width: 500px;
+}
+
+.joinNowButton {
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+  background-color: #0a66c2;
+  color: white;
+  border-radius: 50px;
+  max-width: 500px;
+}
