@@ -1,0 +1,96 @@
+
+.avatar {
+    height: 70px !important;
+    width: 70px !important;
+    margin: auto;
+}
+
+.images{
+    width:100%
+}
+
+.container {
+    margin:auto;
+    max-width: 500px;
+    padding: 1rem;
+}
+
+.section1{
+    display: flex;
+    align-items: center;
+}
+
+.username{
+    font-weight: 600;
+    font-size: 1rem;
+
+}
+
+.bio{
+    font-size: 0.8rem;
+    color:#666666 ;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+     -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.post_date{
+    color: #666666;
+    font-size: 0.8rem;
+}
+.follow_button{
+    font-size: 0.8rem !important;
+    font-weight: bolder !important;
+    width: 5rem;
+    padding: 0 0.2rem !important;
+    color: #0a66c2;
+    outline: none;
+    background-color:transparent;
+    border: none;
+    align-self: flex-start;
+    padding: 0 0.2rem;
+    width: 6rem;
+}
+
+.menubar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.description{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 0.9rem ;
+    line-height:1.3rem ;
+    text-align:start;
+    margin-top: 0.3rem;
+}
+
+.image{
+    overflow: hidden;
+    width: 100%;
+}
+.images {
+
+}
+
+
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    height: 3rem;
+    padding: 1rem 0;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 0.3rem;
+}

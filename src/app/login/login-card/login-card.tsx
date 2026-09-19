@@ -3,6 +3,7 @@ import googleLogo from '@/../public/google.png'
 import appleLogo from '@/../public/apple-logo.png'
 import Image from "next/image";
 import styles from './login-card.module.css'
+import { GoogleAuthButton, AppleAuthButton } from "@/app/ui/auth/auth-buttons";
 
 export default function LoginCard() {
   return (
@@ -11,8 +12,8 @@ export default function LoginCard() {
       <Box className={styles.subtitle}>
         <Typography variant="h6" sx={{fontSize:'1.2rem'}}>New to LinkedIn?</Typography> <Typography  variant="h6" sx={{fontSize:'1.2rem', fontWeight:'700', color:'#0a66c2'}}>Join Now</Typography>
       </Box>
-      <Box className={styles.authButton}>
-        <button className={styles.button1}>
+
+        {/* <button className={styles.button1}>
         <Image
           style={{ backgroundColor: "white", borderRadius: "100%" }}
           width={40}
@@ -21,18 +22,19 @@ export default function LoginCard() {
           alt="google logo"
         />
         Continue with Google
-      </button>
-      <button className={styles.button2}>
+      </button> */}
+      <GoogleAuthButton/>
+      <AppleAuthButton/>
+      {/* <button className={styles.button2}>
         <Image
           style={{ backgroundColor: "white", borderRadius: "100%" }}
           width={25}
           height={25}
           src={appleLogo}
-          alt="google logo"
+          alt="apple logo"
         />
-        Sign in with Apple</button>
+        Sign in with Apple</button> */}
 
-      </Box>
       
 
       <Typography sx={{color:'#a1978e'}}>
