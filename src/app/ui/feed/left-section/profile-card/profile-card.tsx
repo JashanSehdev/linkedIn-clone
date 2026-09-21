@@ -21,8 +21,6 @@ export default function ProfileCard () {
                 <p className={styles.location}>Amritsar/Ludhiana Area</p>
             </Box> 
             
-
-            
         </Paper>
     )
 }

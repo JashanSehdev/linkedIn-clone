@@ -3,8 +3,7 @@ import Navbar from "../ui/navbar/navbar-variant-1";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
+      <main>
         <AppRouterCacheProvider>
           <nav>
             <Navbar />
@@ -12,7 +11,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
           {children}
         </AppRouterCacheProvider>
-      </body>
-    </html>
+      </main>
   );
 }

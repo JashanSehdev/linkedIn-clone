@@ -1,0 +1,21 @@
+.container{
+    background-color: #f4f2ee;
+    padding-top: 2rem;
+}
+.sub_container{
+    margin: auto;
+    max-width: 1116px ;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.left_secton{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.right_section{
+    width: 100%;
+}

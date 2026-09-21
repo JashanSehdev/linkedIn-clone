@@ -1,7 +1,6 @@
 "use client";
-import { Box } from "@mui/material";
+import { Box, Icon } from "@mui/material";
 import styles from "./navbar-1.module.css";
-import SignInButton from "./buttons/nav-1-buttons";
 
 const linkedIn_logo =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwuuIoHV1Agjydqcf0Z9UaXTKRvdGcPD2_xM6yt-WxDAPgyJm-";
@@ -10,11 +9,7 @@ export default function Navbar() {
   return (
     <Box className={styles.container}>
       <Box className={styles.nav}>
-        <Box
-            className={styles.logo}
-            component={'img'}
-            src={linkedIn_logo}
-        />
+        <Box className={styles.logo} component={"img"} src={linkedIn_logo} />
         <Box className={styles.utilities}>
           <Box className={styles.icons}>
             <Box className={styles.icon}>
@@ -27,8 +22,8 @@ export default function Navbar() {
                 fill="currentColor"
                 focusable="false"
                 className="lazy-loaded"
-                width="18"
-                height="20"
+                width="30"
+                height="30"
               >
                 <path d="M19.88 3.01l-4.9.72a4.71 4.71 0 00-3.18 1.84L9.98 7.99H7c-.63 0-1.22.3-1.6.8L3 11.99h4.35c-.43.77-.91 1.64-1.4 2.54l3.5 3.5c.91-.5 1.78-.98 2.55-1.42v4.38l3.2-2.4c.5-.38.8-.97.8-1.6v-3.02l2.4-1.8a4.672 4.672 0 001.84-3.18l.74-4.87c.08-.65-.47-1.2-1.12-1.12zM15 10.98c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-10.04 5.4l2.65 2.65c-2.92 1.58-5.64 2.99-5.64 2.99s1.41-2.72 2.98-5.65z"></path>
               </svg>
@@ -37,8 +32,8 @@ export default function Navbar() {
             <Box className={styles.icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="20"
+                width="30"
+                height="30"
                 fill="none"
                 focusable="false"
                 className="lazy-loaded"
@@ -55,8 +50,8 @@ export default function Navbar() {
             <Box className={styles.icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="40"
+                height="40"
                 fill="none"
                 focusable="false"
                 className="lazy-loaded"
@@ -92,27 +87,30 @@ export default function Navbar() {
               <p>learning</p>
             </Box>
             <Box className={styles.icon}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="18"
-                fill="none"
-                focusable="false"
-                className="lazy-loaded"
-                aria-busy="false"
+              <Icon
+                aria-hidden="true"
               >
-                <path
-                  d="M15 4V3c0-1.7-1.3-3-3-3H8C6.3 0 5 1.3 5 3v1H0v4c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3V4h-5ZM7 3c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v1H7V3Zm10 9c1.2 0 2.3-.5 3-1.4V15c0 1.7-1.3 3-3 3H3c-1.7 0-3-1.3-3-3v-4.4c.7.9 1.8 1.4 3 1.4h14Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="50"
+                  fill="none"
+                  focusable="false"
+                  aria-busy="false"
+                >
+                  <path
+                    d="M15 4V3c0-1.7-1.3-3-3-3H8C6.3 0 5 1.3 5 3v1H0v4c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3V4h-5ZM7 3c0-.6.4-1 1-1h4c.6 0 1 .4 1 1v1H7V3Zm10 9c1.2 0 2.3-.5 3-1.4V15c0 1.7-1.3 3-3 3H3c-1.7 0-3-1.3-3-3v-4.4c.7.9 1.8 1.4 3 1.4h14Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </Icon>
               <p>jobs</p>
             </Box>
             <Box className={styles.icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="21"
-                height="20"
+                width="28"
+                height="30"
                 viewBox="0 0 21 20"
                 fill="none"
                 focusable="false"
@@ -129,13 +127,13 @@ export default function Navbar() {
             </Box>
 
             {/* icons */}
-            <Box className={styles.buttons}>{/* buttons */}
+            <Box className={styles.buttons}>
+              {/* buttons */}
 
-            <button className={styles.signInButton}>Sign in</button>
-            <button className={styles.joinNowButton}>Join Now</button>
+              <button className={styles.signInButton}>Sign in</button>
+              <button className={styles.joinNowButton}>Join Now</button>
+            </Box>
           </Box>
-          </Box>
-          
         </Box>
       </Box>
     </Box>

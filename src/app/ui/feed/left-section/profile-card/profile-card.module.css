@@ -1,11 +1,13 @@
 
 .container {
-    width: 16rem;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .details{
     margin-top: -2rem;
     padding: 1rem;
+    border-radius: 10px;
 }
 
 .title {
@@ -18,6 +20,7 @@
     font-size: 0.8rem;
     margin-bottom: 0.2rem;
     color:#404040 ;
+    
 }
 
 .location {
@@ -38,6 +41,7 @@
     height: 3rem;
     width: 100%;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
 
 
 }

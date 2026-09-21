@@ -1,64 +1,108 @@
-import { Box, Button, Checkbox, Divider, FormHelperText, Paper, TextField, Typography } from "@mui/material";
-import googleLogo from '@/../public/google.png'
-import appleLogo from '@/../public/apple-logo.png'
-import Image from "next/image";
-import styles from './login-card.module.css'
+'use client'
+
+import {
+  Box,
+  Button,
+  Checkbox,
+  CircularProgress,
+  Divider,
+  FormHelperText,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import styles from "./login-card.module.css";
 import { GoogleAuthButton, AppleAuthButton } from "@/app/ui/auth/auth-buttons";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { handleEmailLogin } from "@/actions/auth-actions";
+
+
+const loginSchema = z.object({
+  email : z.string().email().min(1, 'email required'),
+  password : z.string().min(6, 'password should not be less than 6 letters').max(12, 'password should be less than 6 letters')
+})
+
+type FormData = z.infer<typeof loginSchema>
 
 export default function LoginCard() {
+  const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver : zodResolver(loginSchema)
+  });
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    handleEmailLogin(data.email, data.password, setLoading)
+  }
+
   return (
     <Paper className={styles.container} elevation={2}>
       <h3 className={styles.title}>Sign In</h3>
       <Box className={styles.subtitle}>
-        <Typography variant="h6" sx={{fontSize:'1.2rem'}}>New to LinkedIn?</Typography> <Typography  variant="h6" sx={{fontSize:'1.2rem', fontWeight:'700', color:'#0a66c2'}}>Join Now</Typography>
+        <Typography variant="h6" sx={{ fontSize: "1.2rem" }}>
+          New to LinkedIn?
+        </Typography>{" "}
+        <Typography
+          variant="h6"
+          sx={{ fontSize: "1.2rem", fontWeight: "700", color: "#0a66c2" }}
+        >
+          Join Now
+        </Typography>
       </Box>
 
-        {/* <button className={styles.button1}>
-        <Image
-          style={{ backgroundColor: "white", borderRadius: "100%" }}
-          width={40}
-          height={40}
-          src={googleLogo}
-          alt="google logo"
-        />
-        Continue with Google
-      </button> */}
-      <GoogleAuthButton/>
-      <AppleAuthButton/>
-      {/* <button className={styles.button2}>
-        <Image
-          style={{ backgroundColor: "white", borderRadius: "100%" }}
-          width={25}
-          height={25}
-          src={appleLogo}
-          alt="apple logo"
-        />
-        Sign in with Apple</button> */}
+      <GoogleAuthButton />
+      <AppleAuthButton />
 
-      
-
-      <Typography sx={{color:'#a1978e'}}>
-        By continuing, you agree to LinkedIn’s <span style={{color:'#0a66c2', fontWeight:'540'}}>User Agreement, Privacy Policy,</span> and  <span style={{color:'#0a66c2', fontWeight:'540'}}> Cookie Policy.</span> 
+      <Typography sx={{ color: "#a1978e" }}>
+        By continuing, you agree to LinkedIn’s{" "}
+        <span style={{ color: "#0a66c2", fontWeight: "540" }}>
+          User Agreement, Privacy Policy,
+        </span>{" "}
+        and{" "}
+        <span style={{ color: "#0a66c2", fontWeight: "540" }}>
+          {" "}
+          Cookie Policy.
+        </span>
       </Typography>
-        <Box className={styles.divider}>
-            <Divider sx={{display:'inline'}}/> or <Divider sx={{display:'inline'}}/>
-        </Box>
+      <Box className={styles.divider}>
+        <Divider sx={{ display: "inline" }} /> or{" "}
+        <Divider sx={{ display: "inline" }} />
+      </Box>
 
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Box className={styles.input}>
-            <Typography className={styles.label}>Email or Phone</Typography>
-            <TextField fullWidth   variant="outlined" />
+          <Typography className={styles.label}>Email or Phone</Typography>
+          <TextField fullWidth variant="outlined" 
+            {...register('email')}
+          />
+          {errors.email && <FormHelperText error>{errors.email.message}</FormHelperText>}
         </Box>
-         <Box className={styles.input}>
-            <Typography className={styles.label}>Password</Typography>
-            <TextField fullWidth  variant="outlined" />
+        <Box className={styles.input}>
+          <Typography className={styles.label}>Password</Typography>
+          <TextField fullWidth variant="outlined" 
+            {...register('password')}
+          />
+          {errors.password && <FormHelperText error>{errors.password.message}</FormHelperText>}
         </Box>
         <Typography className={`${styles.blue}`}>Forget password?</Typography>
         <Box className={styles.checkbox}>
-        <Checkbox className={styles.check_button} size="large" color="success"/>
-        <Typography className={styles.Checkbox_text}>Keep me signed in</Typography>
-
+          <Checkbox
+            className={styles.check_button}
+            size="large"
+            color="success"
+          />
+          <Typography className={styles.Checkbox_text}>
+            Keep me signed in
+          </Typography>
         </Box>
-        <button className={styles.submit}>Sign In</button>
+        <button className={styles.submit}>{loading ? <CircularProgress/>: 'Sign in'}</button>
+      </form>
     </Paper>
   );
 }
