@@ -20,6 +20,7 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
+import Link from "next/link";
 
 
 
@@ -35,7 +36,6 @@ export default function SignupCard() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver : zodResolver(signupSchema)
@@ -87,7 +87,7 @@ export default function SignupCard() {
       <MicrosoftAuthButton />
       <Box className={styles.footer}>
         <p>Already on LinkedIn?</p>
-        <p className={styles.blue}>Sign In</p>
+        <Link href={"/login"} className={styles.blue}>Sign In</Link>
       </Box>
     </Paper>
   );

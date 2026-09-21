@@ -1,6 +1,7 @@
 import { User } from "@/types/feed";
 import { Avatar, Box, Button, Paper, Typography } from "@mui/material";
 import styles from "./people-card.module.css";
+import CloseIcon from '@mui/icons-material/Close';
 
 type Prop = {
   user: User;
@@ -11,16 +12,17 @@ const bannerImage =
 export default function PeopleCard({ user }: Prop) {
   return (
     <Paper className={styles.container}>
-      <Box
-        component={"img"}
-        src={bannerImage}
-        className={styles.banner}
-        alt="banner"
-      />
-      <Avatar className={styles.avatar} src={user.profileImage}/>
+      <Box component={"img"} src={bannerImage} className={styles.banner} alt="banner" />
+      <Avatar className={styles.avatar} src={user.profileImage} />
+      <span className ={styles.close}><CloseIcon fontSize="small" sx={{color:'white'}}/></span>
+
       <Box className={styles.bio}>
-        <p >{user.name}</p>
-        <p className={styles.headline}>{user.headline}</p>
+        <Typography variant="subtitle1" className={styles.name}>
+          {user.name}
+        </Typography>
+        <Typography variant="caption" align="center" className={styles.headline}>
+          {user.headline}
+        </Typography>
       </Box>
       <Button className={styles.button}>
         <svg
@@ -33,7 +35,6 @@ export default function PeopleCard({ user }: Prop) {
           data-token-id="414"
           width="16"
           height="16"
-          class="c26322bb _57df2c34 _576523d0 _7588a38c _178c3696 adc5e25e"
         >
           <path d="M9 4a3 3 0 1 1-3-3 3 3 0 0 1 3 3M6.75 8h-1.5A2.25 2.25 0 0 0 3 10.25V15h6v-4.75A2.25 2.25 0 0 0 6.75 8M13 8V6h-1v2h-2v1h2v2h1V9h2V8z"></path>
         </svg>

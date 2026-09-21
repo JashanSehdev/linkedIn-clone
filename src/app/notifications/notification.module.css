@@ -1,6 +1,7 @@
 .container{
     background-color: #f4f2ee;
     padding-top: 2rem;
+    height: 90dvh;
 }
 .sub_container{
     margin: auto;
@@ -10,18 +11,22 @@
 }
 
 .left_section{
-    width: 13rem;
+    width: 14rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
 .right_section {
-    width: 17rem;
+    width: 4rem;
 }
 
 .mid_section {
-    height: 100dvh;
     overflow-y: scroll;
     scrollbar-width: none;
+    width: 34.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
 }

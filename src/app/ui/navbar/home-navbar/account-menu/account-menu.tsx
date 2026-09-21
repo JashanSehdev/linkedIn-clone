@@ -4,10 +4,10 @@ import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 
 import styles from "./account-menu.module.css";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { Button, Divider, Typography } from "@mui/material";
 
-const profilePic =
-  "https://i.pinimg.com/736x/ce/ad/94/cead941fca1ea8075e01f564f1eedf98.jpg";
+const profilePic = "https://i.pinimg.com/736x/ce/ad/94/cead941fca1ea8075e01f564f1eedf98.jpg";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -18,20 +18,21 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const router = useRouter();
 
   const handleLogout = async () => {
     try {
-
       const res = await fetch("/api/logout", {
         method: "POST",
       });
 
+      console.log("Client side resp", res)
       if (!res.ok) throw new Error("Failed to logout");
-
-      redirect("/login")
+      
+      console.log("logout ho gya ")
+      router.replace('/login')
     } catch (error: any) {
-      console.error("Error occur while logout", error)
-    } finally {
+      console.error("Error occur while logout", error);
     }
   };
 
@@ -75,7 +76,7 @@ export default function AccountMenu() {
               overflow: "visible",
               filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
               mt: 1.5,
-              padding: "1rem 0.2rem",
+              padding: "0.1rem 1rem",
               "& .MuiAvatar-root": {
                 width: 32,
                 height: 32,
@@ -100,7 +101,42 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <p onClick={handleLogout}>logout</p>
+        <Box className={styles.container}>
+          <Box className={styles.section1}>
+            <Box className={styles.profile}>
+              <Avatar src={profilePic} alt="profile" />
+              <Box>
+                <Typography className={styles.username} variant="subtitle1">
+                  Jashan Sehdev
+                </Typography>
+                <Typography variant="body2">Software Engineer | Web Developer</Typography>
+              </Box>
+            </Box>
+             <Button className={styles.profileView} >View Profile</Button>
+          </Box>
+        </Box>
+        <Box className={styles.options}>
+          <Typography color="disabled" variant="subtitle2" sx={{fontWeight: 'bolder'}}>Account</Typography>
+          <Box>
+            {
+              ['setting & Privacy', 'Help', 'language'].map((item, index) =>(
+                <Typography variant="subtitle2" className={styles.option} key={index}>{item}</Typography>
+              ))
+            }
+          </Box>
+        </Box>
+        <Divider/>
+
+        <Box className={styles.options}>
+          <Typography variant='subtitle2' sx={{fontWeight: 'bolder'}}>Manage</Typography>
+          {
+            ['Posts & Activity', 'Job Posting Account'].map((item, index) => (
+              <Typography variant="subtitle2" className={styles.option} key={index}>{item}</Typography>
+            ))
+          }
+        </Box>
+        <Divider/>
+        <Typography variant="subtitle2" className={styles.signout} onClick={handleLogout}>Sign out</Typography>
       </Menu>
     </React.Fragment>
   );

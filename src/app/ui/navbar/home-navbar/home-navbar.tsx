@@ -48,7 +48,7 @@ export default function HomeNavbar() {
             </svg>
             <p>My Network</p>
           </Link>
-          <Box className={styles.button}>
+          <Link href={'/jobs'} className={styles.button}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               id="job-medium"
@@ -61,7 +61,7 @@ export default function HomeNavbar() {
               <path d="M17 6V5a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v1H2v4a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V6zM9 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1H9zm10 9a4 4 0 0 0 3-1.38V17a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-4.38A4 4 0 0 0 5 14z"></path>
             </svg>
             <p>Jobs</p>
-          </Box>
+          </Link>
           <Box className={styles.button}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ export default function HomeNavbar() {
             </svg>
             <p>Messaging</p>
           </Box>
-          <Box className={styles.button}>
+          <Link href={'/notifications'} className={styles.button}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               id="bell-fill-medium"
@@ -89,7 +89,7 @@ export default function HomeNavbar() {
               <path d="M22 19h-8.28a2 2 0 1 1-3.44 0H2v-1a4.52 4.52 0 0 1 1.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0 1 22 18zM18.21 7.44A6.27 6.27 0 0 0 12 2a6.27 6.27 0 0 0-6.21 5.44L5 13h14z"></path>
             </svg>
             <p>Notification</p>
-          </Box>
+          </Link>
           {/* <Box className={styles.button}>
             <Avatar
               src={profilePic}

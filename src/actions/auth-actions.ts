@@ -27,7 +27,7 @@ export const handleGoogleLogin = async () => {
     const idToken = await result.user.getIdToken();
 
     await createSession(idToken);
-
+    
     redirect("/feed");
   } catch (error: any) {
     console.error(error);

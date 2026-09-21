@@ -2,7 +2,6 @@
 
 import {
   Box,
-  Button,
   Checkbox,
   CircularProgress,
   Divider,
@@ -18,6 +17,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { handleEmailLogin } from "@/actions/auth-actions";
+import Link from "next/link";
 
 
 const loginSchema = z.object({
@@ -32,7 +32,6 @@ export default function LoginCard() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver : zodResolver(loginSchema)
@@ -48,12 +47,12 @@ export default function LoginCard() {
         <Typography variant="h6" sx={{ fontSize: "1.2rem" }}>
           New to LinkedIn?
         </Typography>{" "}
-        <Typography
-          variant="h6"
-          sx={{ fontSize: "1.2rem", fontWeight: "700", color: "#0a66c2" }}
+        <Link
+        href={'/signup'}
+        className={styles.link}
         >
           Join Now
-        </Typography>
+        </Link>
       </Box>
 
       <GoogleAuthButton />
@@ -85,7 +84,7 @@ export default function LoginCard() {
         </Box>
         <Box className={styles.input}>
           <Typography className={styles.label}>Password</Typography>
-          <TextField fullWidth variant="outlined" 
+          <TextField type="password" fullWidth variant="outlined" 
             {...register('password')}
           />
           {errors.password && <FormHelperText error>{errors.password.message}</FormHelperText>}

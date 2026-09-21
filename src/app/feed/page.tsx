@@ -12,7 +12,7 @@ export default function Feed() {
   return (
     <Box className={styles.container}>
       <Box className={styles.sub_container}>
-        <Box className={styles.left_secton}>
+        <Box className={styles.left_section}>
           <ProfileCard />
           <AnalyticsCard />
           <OptionsCard />
